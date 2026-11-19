@@ -1,3 +1,6 @@
+import album1 from "@/assets/skz-album-1.jpg.asset.json";
+import album2 from "@/assets/skz-album-2.jpg.asset.json";
+import album3 from "@/assets/skz-album-3.jpg.asset.json";
 /** Day 9, "Concierto SKZ": a Friday Night Funkin' style rhythm game with three songs. */
 
 export const CONCIERTO_TITLE = "Concierto SKZ";
@@ -27,7 +30,7 @@ export const LEVELS: Level[] = [
     title: "This & That",
     difficulty: "Fácil",
     trackUri: "spotify:track:7AN7dJCtHqbL7f76QGyraa",
-    cover: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0237f636fa384b48481241cbd3",
+    cover: album1.url,
     bpm: 120,
     density: 0.35,
     speed: 0.85,
@@ -37,7 +40,7 @@ export const LEVELS: Level[] = [
     title: "God's Menu",
     difficulty: "Normal",
     trackUri: "spotify:track:4XPXrcpyNr30Km6aPiflJy",
-    cover: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02fad8c4176e8df7173479f959",
+    cover: album2.url,
     bpm: 146,
     density: 0.6,
     speed: 1.05,
@@ -47,7 +50,7 @@ export const LEVELS: Level[] = [
     title: "LALALALA",
     difficulty: "Difícil",
     trackUri: "spotify:track:1OG1NoKpZZLrMqMYCk9m84",
-    cover: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e022bca95a658fdf653a35a3710",
+    cover: album3.url,
     bpm: 144,
     density: 0.85,
     speed: 1.25,
