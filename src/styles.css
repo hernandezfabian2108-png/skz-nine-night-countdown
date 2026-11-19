@@ -9,6 +9,7 @@
 @source "../src";
 @import "tw-animate-css";
 @import "./components/days/shop.css";
+@import "./components/days/beach.css";
 
 @custom-variant dark (&:is(.dark *));
 
