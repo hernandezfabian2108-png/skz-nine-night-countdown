@@ -19,7 +19,7 @@ export function Day11() {
   const hydrated = useHydrated();
   const [open, setOpen] = useState(true);
   return <>
-    <Button variant="native" className="candy-button grid h-28 w-28 place-items-center" aria-label="Abrir la playa nocturna" onClick={() => setOpen(true)}><Moon size={40} /></Button>
+    <Button variant="native" className="candy-button beach-launcher grid h-28 w-28 place-items-center" aria-label="Abrir la playa nocturna" onClick={() => setOpen(true)}><Moon size={40} /></Button>
     {hydrated && open && createPortal(<NightBeach onClose={() => setOpen(false)} />, document.body)}
   </>;
 }
