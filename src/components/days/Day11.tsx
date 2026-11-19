@@ -53,7 +53,7 @@ function NightBeach({ onClose }: { onClose: () => void }) {
       <div><p className="beach-eyebrow">STRAY KIDS · DÍA 11</p><h2 className="beach-title">Bajo el mismo cielo</h2></div>
       <Button ref={closeRef} variant="native" className="beach-control pointer-events-auto shrink-0" aria-label="Cerrar la playa" title="Cerrar la playa" onClick={onClose}><X size={20} /></Button>
     </header>
-    <div className="beach-toolbar absolute bottom-7 left-1/2 flex -translate-x-1/2 items-center gap-2 sm:bottom-9" role="toolbar" aria-label="Fuegos artificiales y ambiente">
+    <div className="beach-toolbar absolute top-24 left-1/2 flex -translate-x-1/2 items-center gap-2" role="toolbar" aria-label="Fuegos artificiales y ambiente">
       <div className="beach-types flex items-center gap-1">
         {FIREWORKS.map(f => <Button key={f.id} variant="native" className="beach-control beach-firework" aria-pressed={kind === f.id} aria-label={f.label} title={f.label} onClick={() => setKind(f.id)}><FireworkIcon kind={f.id} /><span className="beach-tip">{f.label}</span></Button>)}
       </div>

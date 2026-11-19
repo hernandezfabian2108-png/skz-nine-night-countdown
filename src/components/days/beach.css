@@ -20,7 +20,7 @@
 .beach-control[aria-pressed="true"] { background: var(--beach-text); color: var(--beach-ink); }
 .beach-skz-icon { font-size: 0.68rem; font-style: italic; font-weight: 800; letter-spacing: 0; }
 .beach-divider { width: 1px; height: 1.8rem; background: var(--beach-line); }
-.beach-tip { pointer-events: none; position: absolute; bottom: calc(100% + 0.65rem); left: 50%; transform: translate(-50%, 4px); opacity: 0; white-space: nowrap; border-radius: 999px; background: var(--beach-ink); padding: 0.35rem 0.6rem; color: var(--beach-text); font-size: 0.72rem; transition: 160ms ease; }
+.beach-tip { pointer-events: none; position: absolute; top: calc(100% + 0.65rem); left: 50%; transform: translate(-50%, 4px); opacity: 0; white-space: nowrap; border-radius: 999px; background: var(--beach-ink); padding: 0.35rem 0.6rem; color: var(--beach-text); font-size: 0.72rem; transition: 160ms ease; }
 .beach-control:hover .beach-tip, .beach-control:focus-visible .beach-tip { opacity: 1; transform: translate(-50%, 0); }
 .beach-signature { color: var(--beach-muted); letter-spacing: 0; }
 @media (max-width: 420px) { .beach-title { font-size: 1.4rem; } .beach-control { width: 2.55rem; height: 2.55rem; } .beach-toolbar { gap: 0.15rem; } }
