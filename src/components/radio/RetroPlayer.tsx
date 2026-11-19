@@ -13,7 +13,7 @@ export function RetroPlayer() {
   const title = radio.title || (radio.ready ? "Radio SKZ" : "Sintonizando…");
 
   return (
-    <div className="radio-body relative w-full" data-playing={radio.playing}>
+    <div className="radio-body relative min-w-0 w-full" data-playing={radio.playing}>
       <span className="radio-antenna" aria-hidden="true" />
 
       <div className="flex items-center justify-between gap-3 px-1">
