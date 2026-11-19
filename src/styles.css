@@ -3888,3 +3888,5 @@
     animation: none !important;
   }
 }
+.stay-shop { scroll-padding-top: 100px; scroll-padding-bottom: 130px; }
+.stay-shop button, .stay-shop a { scroll-margin-top: 100px; scroll-margin-bottom: 130px; }
