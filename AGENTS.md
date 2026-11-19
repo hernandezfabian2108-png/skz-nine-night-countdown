@@ -35,4 +35,5 @@ use the editor.
 - Import downloaded media through asset JSON pointers and use their URL fields so binaries stay outside the repository.
 - Use the Button native variant for imported game controls to preserve their original dimensions and CSS while retaining the shared control component.
 - Preserve the target's pinned framework dependencies and runtime bootstrap during source migrations to keep published execution compatible.
+- Keep day 10 shop state in its experience and product rules in a browser-safe module; pointer events and keyboard arrows share bounded sticker positions for touch and mouse parity.
 <!-- AGENT-MEMORY:END -->

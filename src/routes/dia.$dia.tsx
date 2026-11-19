@@ -12,9 +12,9 @@ export const Route = createFileRoute("/dia/$dia")({
     return day;
   },
   head: ({ loaderData }) => {
-    const title = loaderData ? `Día ${loaderData.day} · Stray Kids` : "Calendario de Adviento";
+    const title = loaderData?.day === 10 ? "STAY MART · Día 10 · Stray Kids" : loaderData ? `Día ${loaderData.day} · Stray Kids` : "Calendario de Adviento";
     const description = loaderData
-      ? `La sorpresa detrás de la puerta ${loaderData.day} del calendario de Adviento.`
+      ? loaderData.day === 10 ? "Personaliza tu bolsa y explora una tienda coreana de snacks, álbumes y peluches de Stray Kids." : `La sorpresa detrás de la puerta ${loaderData.day} del calendario de Adviento.`
       : "Calendario de Adviento interactivo.";
     return {
       meta: [
