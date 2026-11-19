@@ -7,14 +7,23 @@ type Props = {
   color: BagColor; style: BagStyle; stickers: Decoration[]; editable?: boolean;
   selected?: number | null; onSelect?: (id: number) => void;
   onMove?: (id: number, x: number, y: number) => void;
+  onDropSticker?: (name: string, x: number, y: number) => void;
 };
-export function ShopBag({ color, style, stickers, editable, selected, onSelect, onMove }: Props) {
+export function ShopBag({ color, style, stickers, editable, selected, onSelect, onMove, onDropSticker }: Props) {
   const surface = useRef<HTMLDivElement>(null);
   const drag = useRef<{ id: number; dx: number; dy: number } | null>(null);
   return (
     <div className="shop-bag-wrap">
       <div className="shop-bag-handle" data-color={color} />
-      <div ref={surface} className="shop-bag" data-color={color} data-style={style}>
+      <div ref={surface} className="shop-bag" data-color={color} data-style={style}
+        onDragOver={e => { if (editable) e.preventDefault(); }}
+        onDrop={e => {
+          if (!editable) return;
+          e.preventDefault();
+          const rect = e.currentTarget.getBoundingClientRect();
+          const pos = clampPosition((e.clientX - rect.left) / rect.width * 100, (e.clientY - rect.top) / rect.height * 100);
+          onDropSticker?.(e.dataTransfer.getData("text/plain"), pos.x, pos.y);
+        }}>
         <div className="shop-bag-label"><ShoppingBag size={18} /><span>STAY MART</span><small>SEOUL · STRAY KIDS</small></div>
         {stickers.map(sticker => (
           <Button variant="native" key={sticker.id} disabled={!editable}

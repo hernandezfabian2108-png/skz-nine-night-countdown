@@ -45,7 +45,13 @@ function Shop({ onClose }: { onClose: () => void }) {
     if (start && end) setFlight({ product, x: start.left + start.width / 2, y: start.top + start.height / 2, dx: end.left + end.width / 2 - start.left - start.width / 2, dy: end.top + Math.min(end.height / 2, 110) - start.top - start.height / 2, key: ++id.current });
   };
   const reset = () => { setColor("mint"); setStyle("tote"); setStickers([]); setSelected(null); setItems({}); setPhase("decorate"); setInventoryOpen(false); setNotice(""); };
-  const bag = <ShopBag color={color} style={style} stickers={stickers} editable={phase === "decorate"} selected={selected} onSelect={setSelected} onMove={moveSticker} />;
+  const bag = <ShopBag color={color} style={style} stickers={stickers} editable={phase === "decorate"} selected={selected} onSelect={setSelected} onMove={moveSticker} onDropSticker={(name, x, y) => {
+    const sticker = SHOP_STICKERS.find(s => s.name === name);
+    if (!sticker) return;
+    const nextId = ++id.current;
+    setStickers(previous => [...previous, { ...sticker, id: nextId, x, y }]);
+    setSelected(nextId);
+  }} />;
 
   return <div className="stay-shop fixed inset-0 z-[70] overflow-y-auto bg-background text-foreground" role="dialog" aria-modal="true" aria-label="Día 10: STAY MART">
     <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur-md">
