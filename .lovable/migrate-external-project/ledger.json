@@ -1,0 +1,128 @@
+[
+  {
+    "capability": "code",
+    "source": "TanStack Start React 19",
+    "outcome": "migrate",
+    "status": "pending",
+    "next_action": "Copy and verify"
+  },
+  {
+    "capability": "routes",
+    "source": "/, /puertas, /dia/$dia",
+    "outcome": "migrate",
+    "status": "pending",
+    "next_action": "Copy and verify"
+  },
+  {
+    "capability": "games",
+    "source": "Nine custom daily experiences; 24 total doors",
+    "outcome": "migrate",
+    "status": "pending",
+    "next_action": "Copy and verify"
+  },
+  {
+    "capability": "assets",
+    "source": "16 bundled images and favicon",
+    "outcome": "migrate",
+    "status": "pending",
+    "next_action": "Copy and verify"
+  },
+  {
+    "capability": "progress",
+    "source": "Device-local completed days; no database",
+    "outcome": "preserve",
+    "status": "pending",
+    "next_action": "Copy and verify"
+  },
+  {
+    "capability": "external providers",
+    "source": "YouTube radio playlist and Spotify embeds",
+    "outcome": "preserve",
+    "status": "pending",
+    "next_action": "Copy and verify"
+  },
+  {
+    "capability": "schema",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "records",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "auth identities",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "authorization",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "uploaded file bytes",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "public endpoints",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "callbacks",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "webhooks",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "schedules",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "secrets",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "cutover",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "verification",
+    "source": "Source tests and live app",
+    "outcome": "verify",
+    "status": "pending",
+    "next_action": "Run tests and navigate all pages"
+  }
+]
