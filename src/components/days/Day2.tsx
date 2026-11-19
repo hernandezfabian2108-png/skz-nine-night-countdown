@@ -66,7 +66,7 @@ export function Day2() {
                 <X className="h-5 w-5" strokeWidth={3} />
               </Button>
 
-              <div className="grid items-center gap-12 md:grid-cols-[1fr_1.05fr] md:gap-6">
+              <div className="grid min-w-0 items-center gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-6">
                 <section className="radio-note p-5 sm:p-6">
                   <h2 className="radio-note-title">¡Encendemos los motores del mes! 🎶</h2>
                   <p className="mt-3 leading-relaxed">
