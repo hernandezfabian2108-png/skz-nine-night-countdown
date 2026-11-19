@@ -54,7 +54,7 @@ export function BeachCanvas({ kind, clearKey, onLaunch }: Props) {
         ctx.fill(path);
         ctx.shadowBlur = 0;
       }
-      sand.dataset.strokeCount = String(strokes.current.length);
+      sand.dataset['strokeCount'] = String(strokes.current.length);
     };
     redraw.current = draw;
     const resize = () => {
@@ -84,7 +84,7 @@ export function BeachCanvas({ kind, clearKey, onLaunch }: Props) {
         fx.stroke();
       }
       bursts.current = bursts.current.filter(b => now - b.born < 4800);
-      effects.dataset.burstCount = String(bursts.current.length);
+      effects.dataset['burstCount'] = String(bursts.current.length);
       for (const burst of bursts.current) {
         const age = (now - burst.born) / 1000;
         const x = burst.x * width;
