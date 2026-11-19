@@ -10,6 +10,6 @@
 - [x] Verificar reglas, ratón, teclado y pantalla móvil sin emojis.
 
 ## Día 11
-- [ ] Crear playa nocturna y dibujo libre en arena con limpieza.
-- [ ] Añadir fuegos clásicos y formas Stray Kids, reflejos y sonido ambiental.
-- [ ] Verificar ratón, teclado, pantalla táctil y ausencia de emojis.
+- [x] Crear playa nocturna y dibujo libre en arena con limpieza.
+- [x] Añadir fuegos clásicos y formas Stray Kids, reflejos y sonido ambiental.
+- [x] Verificar ratón, teclado, pantalla táctil y ausencia de emojis.
