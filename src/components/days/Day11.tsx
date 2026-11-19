@@ -12,7 +12,7 @@ function FireworkIcon({ kind }: { kind: FireworkKind }) {
   if (kind === "classic") return <Sparkles size={22} />;
   if (kind === "skz") return <span className="beach-skz-icon">SKZ</span>;
   return <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-    {kind === "wolf" ? <><path d="M7 12 5 3 13 8h6l8-5-2 9 3 6-5 8-7 3-7-3-5-8Z"/><path d="m11 16 2 1m6 0 2-1m-7 5h4l-2 2m-4 1 4 2 4-2"/></> : <><circle cx="16" cy="11" r="9"/><path d="M13 20v10h6V20M16 4l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/></>}
+    <circle cx="16" cy="11" r="9"/><path d="M13 20v10h6V20M16 4l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/>
   </svg>;
 }
 export function Day11() {

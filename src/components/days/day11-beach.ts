@@ -1,11 +1,10 @@
-export type FireworkKind = "classic" | "skz" | "wolf" | "lightstick";
+export type FireworkKind = "classic" | "skz" | "lightstick";
 export type BeachPoint = { x: number; y: number };
 export const SAND_START = 0.45;
 export const SKY_END = 0.29;
 export const FIREWORKS: { id: FireworkKind; label: string }[] = [
   { id: "classic", label: "Bengala" },
   { id: "skz", label: "Stray Kids" },
-  { id: "wolf", label: "Wolf Chan" },
   { id: "lightstick", label: "Nachimbong" },
 ];
 export function beachZone(y: number): "sky" | "sea" | "sand" {
