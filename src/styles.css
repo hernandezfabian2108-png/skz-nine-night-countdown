@@ -18,6 +18,10 @@
   --font-book: "Cormorant Garamond", Georgia, serif;
   --font-script: "Great Vibes", "Caveat", cursive;
   --font-pixel: "Pixelify Sans", "Courier New", monospace;
+  --color-shop-mint: oklch(0.84 0.08 165);
+  --color-shop-pink: oklch(0.87 0.08 355);
+  --color-shop-cloud: oklch(0.97 0.01 200);
+  --color-shop-ink: oklch(0.3 0.025 180);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
