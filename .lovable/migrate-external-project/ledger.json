@@ -3,43 +3,43 @@
     "capability": "code",
     "source": "TanStack Start React 19",
     "outcome": "migrate",
-    "status": "pending",
-    "next_action": "Copy and verify"
+    "status": "verified",
+    "next_action": null
   },
   {
     "capability": "routes",
     "source": "/, /puertas, /dia/$dia",
     "outcome": "migrate",
-    "status": "pending",
-    "next_action": "Copy and verify"
+    "status": "verified",
+    "next_action": null
   },
   {
     "capability": "games",
     "source": "Nine custom daily experiences; 24 total doors",
     "outcome": "migrate",
-    "status": "pending",
-    "next_action": "Copy and verify"
+    "status": "verified",
+    "next_action": null
   },
   {
     "capability": "assets",
-    "source": "16 bundled images and favicon",
+    "source": "17 bundled images, favicon, and three album covers uploaded as asset pointers",
     "outcome": "migrate",
-    "status": "pending",
-    "next_action": "Copy and verify"
+    "status": "verified",
+    "next_action": null
   },
   {
     "capability": "progress",
-    "source": "Device-local completed days; no database",
+    "source": "Device-local game progress preserved; new-origin memory progress verified through save and reload; prior-origin browser storage is not transferred",
     "outcome": "preserve",
-    "status": "pending",
-    "next_action": "Copy and verify"
+    "status": "verified",
+    "next_action": null
   },
   {
     "capability": "external providers",
-    "source": "YouTube radio playlist and Spotify embeds",
+    "source": "Original YouTube playlist playing; Spotify track embed running in concert game",
     "outcome": "preserve",
-    "status": "pending",
-    "next_action": "Copy and verify"
+    "status": "verified",
+    "next_action": null
   },
   {
     "capability": "schema",
@@ -120,9 +120,9 @@
   },
   {
     "capability": "verification",
-    "source": "Source tests and live app",
+    "source": "40 passing tests; all nine game pages inspected; desktop/mobile navigation, memory win/save/reload, YouTube playing and Spotify concert running verified; build OK",
     "outcome": "verify",
-    "status": "pending",
-    "next_action": "Run tests and navigate all pages"
+    "status": "verified",
+    "next_action": null
   }
 ]
