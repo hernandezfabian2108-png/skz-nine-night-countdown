@@ -8,3 +8,8 @@
 - [x] Crear decoración táctil de bolsa y navegación de tres pasillos.
 - [x] Añadir recolección ilimitada, extracción y vista final.
 - [x] Verificar reglas, ratón, teclado y pantalla móvil sin emojis.
+
+## Día 11
+- [x] Crear playa nocturna y dibujo libre en arena con limpieza.
+- [x] Añadir fuegos clásicos y formas Stray Kids, reflejos y sonido ambiental.
+- [x] Verificar ratón, teclado, pantalla táctil y ausencia de emojis.
