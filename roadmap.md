@@ -5,6 +5,6 @@
 - [x] Verify retained music providers and report any external limitation.
 
 ## Día 10
-- [ ] Crear decoración táctil de bolsa y navegación de tres pasillos.
-- [ ] Añadir recolección ilimitada, extracción y vista final.
-- [ ] Verificar reglas, ratón, teclado y pantalla móvil sin emojis.
+- [x] Crear decoración táctil de bolsa y navegación de tres pasillos.
+- [x] Añadir recolección ilimitada, extracción y vista final.
+- [x] Verificar reglas, ratón, teclado y pantalla móvil sin emojis.
