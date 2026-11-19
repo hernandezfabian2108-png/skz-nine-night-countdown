@@ -1,0 +1,128 @@
+[
+  {
+    "capability": "code",
+    "source": "TanStack Start React 19",
+    "outcome": "migrate",
+    "status": "verified",
+    "next_action": null
+  },
+  {
+    "capability": "routes",
+    "source": "/, /puertas, /dia/$dia",
+    "outcome": "migrate",
+    "status": "verified",
+    "next_action": null
+  },
+  {
+    "capability": "games",
+    "source": "Nine custom daily experiences; 24 total doors",
+    "outcome": "migrate",
+    "status": "verified",
+    "next_action": null
+  },
+  {
+    "capability": "assets",
+    "source": "17 bundled images, favicon, and three album covers uploaded as asset pointers",
+    "outcome": "migrate",
+    "status": "verified",
+    "next_action": null
+  },
+  {
+    "capability": "progress",
+    "source": "Device-local game progress preserved; new-origin memory progress verified through save and reload; prior-origin browser storage is not transferred",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": null
+  },
+  {
+    "capability": "external providers",
+    "source": "Original YouTube playlist playing; Spotify track embed running in concert game",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": null
+  },
+  {
+    "capability": "schema",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "records",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "auth identities",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "authorization",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "uploaded file bytes",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "public endpoints",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "callbacks",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "webhooks",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "schedules",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "secrets",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "cutover",
+    "source": "Not detected after inspecting source call sites",
+    "outcome": "not applicable",
+    "status": "not_applicable",
+    "next_action": null
+  },
+  {
+    "capability": "verification",
+    "source": "40 passing tests; all nine game pages inspected; desktop/mobile navigation, memory win/save/reload, YouTube playing and Spotify concert running verified; build OK",
+    "outcome": "verify",
+    "status": "verified",
+    "next_action": null
+  }
+]

@@ -28,3 +28,11 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+<!-- AGENT-MEMORY:BEGIN -->
+- Keep the migrated calendar in TanStack file routes with shared snow, lights, and radio in the root layout so music survives navigation.
+- Preserve the source's device-local game progress; it is not a hosted account or database feature.
+- Import downloaded media through asset JSON pointers and use their URL fields so binaries stay outside the repository.
+- Use the Button native variant for imported game controls to preserve their original dimensions and CSS while retaining the shared control component.
+- Preserve the target's pinned framework dependencies and runtime bootstrap during source migrations to keep published execution compatible.
+<!-- AGENT-MEMORY:END -->
