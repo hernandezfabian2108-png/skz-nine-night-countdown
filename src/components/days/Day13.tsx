@@ -167,19 +167,10 @@ function Turntable({ disc, spinning }: { disc: { id: number; hue: string } | nul
   </svg>;
 }
 
-/** Original chibi illustration: blond boy with freckles, smiling and winking. */
-function Felix() {
-  return <svg viewBox="0 0 200 200" className="mx-auto w-48" aria-label="Felix chibi sonriendo y guiñando un ojo">
-    {[[30, 40], [170, 50], [25, 150], [175, 140], [100, 15]].map(([x, y], i) => <path key={i} className="cafe-sparkle" style={{ animationDelay: `${i * 0.35}s` }} d={`M${x} ${y! - 9}l3 6 6 3-6 3-3 6-3-6-6-3 6-3z`} />)}
-    <g className="cafe-felix">
-      <path d="M60 170q40-30 80 0v20H60z" fill="var(--cafe-disc-1)" />
-      <ellipse cx="100" cy="100" rx="52" ry="50" fill="var(--cafe-skin)" />
-      <path d="M46 98q-6-58 54-60 60 2 54 60-10-26-30-32-6 12-24 10 6-6 4-12-20 14-46 6-8 10-12 28z" fill="var(--cafe-hair)" />
-      <ellipse cx="80" cy="105" rx="7" ry="9" fill="var(--cafe-ink)" /><circle cx="82" cy="102" r="2.5" fill="var(--cafe-cream)" />
-      <path className="cafe-felix-wink" d="M112 106q8-8 16 0" stroke="var(--cafe-ink)" strokeWidth="3.5" fill="none" strokeLinecap="round" />
-      <ellipse cx="70" cy="122" rx="9" ry="5" fill="var(--cafe-blush)" opacity=".6" /><ellipse cx="130" cy="122" rx="9" ry="5" fill="var(--cafe-blush)" opacity=".6" />
-      {[[64, 116], [70, 120], [76, 116], [124, 116], [130, 120], [136, 116]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="1.3" fill="var(--cafe-wood)" />)}
-      <path d="M90 128q10 10 20 0" stroke="var(--cafe-ink)" strokeWidth="3" fill="var(--cafe-blush)" strokeLinecap="round" />
-    </g>
+/** Decorative sparkle cluster for the closing card. */
+function SparkleBurst() {
+  const stars = [[30, 40], [170, 50], [25, 150], [175, 140], [100, 15], [100, 100], [60, 90], [140, 95]];
+  return <svg viewBox="0 0 200 200" className="mx-auto w-40" aria-hidden>
+    {stars.map(([x, y], i) => <path key={i} className="cafe-sparkle" style={{ animationDelay: `${i * 0.28}s` }} d={`M${x} ${y! - 9}l3 6 6 3-6 3-3 6-3-6-6-3 6-3z`} fill="var(--cafe-gold)" />)}
   </svg>;
 }
