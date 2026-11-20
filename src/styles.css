@@ -10,6 +10,7 @@
 @import "tw-animate-css";
 @import "./components/days/shop.css";
 @import "./components/days/beach.css";
+@import "./components/days/hilo.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -3907,3 +3908,17 @@
 }
 .stay-shop { scroll-padding-top: 100px; scroll-padding-bottom: 130px; }
 .stay-shop button, .stay-shop a { scroll-margin-top: 100px; scroll-margin-bottom: 130px; }
+
+:root {
+  --hilo-paper: oklch(0.96 0.03 80);
+  --hilo-paper-deep: oklch(0.88 0.05 70);
+  --hilo-land: oklch(0.91 0.06 95);
+  --hilo-card: oklch(0.985 0.012 85);
+  --hilo-ink: oklch(0.32 0.04 50);
+  --hilo-ink-soft: oklch(0.5 0.04 55);
+  --hilo-line: oklch(0.85 0.03 70);
+  --hilo-red: oklch(0.58 0.21 25);
+  --hilo-red-deep: oklch(0.45 0.17 22);
+  --hilo-gold: oklch(0.85 0.15 80);
+  --hilo-shadow: oklch(0.3 0.05 40 / 0.5);
+}
