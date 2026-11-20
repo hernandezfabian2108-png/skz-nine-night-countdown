@@ -39,7 +39,7 @@ function RedThread({ onClose }: { onClose: () => void }) {
     window.addEventListener("keydown", onKey);
     let raf = 0;
     const step = () => {
-      const list = pts.current; const m = modeRef.current;
+      const list = pts.current as Array<{ p: Pt; o: Pt }> & { [i: number]: { p: Pt; o: Pt } }; const m = modeRef.current;
       const end: Pt = m === "connected" ? BOGOTA : target.current ?? list[SEGMENTS].p;
       const len = segmentLength(end, m === "connected");
       for (let i = 1; i < list.length; i++) {
@@ -93,7 +93,7 @@ function RedThread({ onClose }: { onClose: () => void }) {
     else { target.current = null; setMode("idle"); }
   };
   const vibrate = () => {
-    const list = pts.current;
+    const list = pts.current as Array<{ p: Pt; o: Pt }> & { [i: number]: { p: Pt; o: Pt } };
     for (let i = 1; i < SEGMENTS; i++) list[i].o.y -= Math.sin((i / SEGMENTS) * Math.PI) * 6 * (i % 2 ? 1 : -1);
     setPulse(v => v + 1);
   };
