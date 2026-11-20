@@ -22,9 +22,8 @@ export function embedUrl(track: string): string {
   return `https://open.spotify.com/embed/track/${track}?utm_source=generator&theme=0`;
 }
 
-export type Art = "lobo" | "logo" | "lightstick" | "corazon";
+export type Art = "logo" | "lightstick" | "corazon";
 export const ARTS: { id: Art; label: string }[] = [
-  { id: "lobo", label: "Lobito" },
   { id: "logo", label: "Logo SKZ" },
   { id: "lightstick", label: "Lightstick" },
   { id: "corazon", label: "Corazón" },

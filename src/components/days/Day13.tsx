@@ -144,7 +144,6 @@ function Cup({ poured, sugar, art }: { poured: boolean; sugar: number; art: Art 
     <ellipse cx="60" cy="46" rx="38" ry="9" fill="var(--cafe-wood-deep)" />
     {poured && <ellipse cx="60" cy="46" rx="35" ry="7.5" fill={sugar > 0 ? "var(--cafe-foam)" : "var(--cafe-coffee)"} className="cafe-pour" opacity={0.75 + sugar * 0.06} />}
     {poured && art && <g key={art} className="cafe-art" transform="translate(60 46) scale(1 .3)" fill="var(--cafe-cream)" stroke="var(--cafe-coffee)" strokeWidth="1.5">
-      {art === "lobo" && <path d="M-16 6l-4-22 10 10h20l10-10-4 22q-4 12-16 12t-16-12z" />}
       {art === "logo" && <text y="7" textAnchor="middle" fontSize="22" fontWeight="900" fontFamily="system-ui">SKZ</text>}
       {art === "lightstick" && <><rect x="-3" y="2" width="6" height="18" /><circle cy="-8" r="11" /></>}
       {art === "corazon" && <path d="M0 14C-22 0-12-16 0-6 12-16 22 0 0 14z" />}
