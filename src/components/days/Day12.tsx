@@ -39,32 +39,32 @@ function RedThread({ onClose }: { onClose: () => void }) {
     window.addEventListener("keydown", onKey);
     let raf = 0;
     const step = () => {
-      const list = pts.current as Array<{ p: Pt; o: Pt }> & { [i: number]: { p: Pt; o: Pt } }; const m = modeRef.current;
-      const end: Pt = m === "connected" ? BOGOTA : target.current ?? list[SEGMENTS].p;
+      const list = pts.current; const m = modeRef.current;
+      const end: Pt = m === "connected" ? BOGOTA : target.current ?? list[SEGMENTS]!.p;
       const len = segmentLength(end, m === "connected");
       for (let i = 1; i < list.length; i++) {
-        const { p, o } = list[i];
+        const { p, o } = list[i]!;
         const vx = (p.x - o.x) * 0.97, vy = (p.y - o.y) * 0.97;
         o.x = p.x; o.y = p.y;
         p.x += vx; p.y += vy + (m === "connected" ? 0.02 : 0.35);
       }
       for (let k = 0; k < 14; k++) {
-        list[0].p.x = CALI.x; list[0].p.y = CALI.y;
-        if (m === "connected" || target.current) { list[SEGMENTS].p.x = end.x; list[SEGMENTS].p.y = end.y; }
+        list[0]!.p.x = CALI.x; list[0]!.p.y = CALI.y;
+        if (m === "connected" || target.current) { list[SEGMENTS]!.p.x = end.x; list[SEGMENTS]!.p.y = end.y; }
         for (let i = 0; i < SEGMENTS; i++) {
-          const a = list[i].p, b = list[i + 1].p;
+          const a = list[i]!.p, b = list[i + 1]!.p;
           const dx = b.x - a.x, dy = b.y - a.y; const d = Math.hypot(dx, dy) || 0.001;
           const diff = (d - len) / d / 2;
           if (i > 0) { a.x += dx * diff; a.y += dy * diff; }
           b.x -= dx * diff; b.y -= dy * diff;
         }
       }
-      let d = `M${list[0].p.x} ${list[0].p.y}`;
+      let d = `M${list[0]!.p.x} ${list[0]!.p.y}`;
       for (let i = 1; i < list.length - 1; i++) {
-        const mx = (list[i].p.x + list[i + 1].p.x) / 2, my = (list[i].p.y + list[i + 1].p.y) / 2;
-        d += ` Q${list[i].p.x} ${list[i].p.y} ${mx} ${my}`;
+        const mx = (list[i]!.p.x + list[i + 1]!.p.x) / 2, my = (list[i]!.p.y + list[i + 1]!.p.y) / 2;
+        d += ` Q${list[i]!.p.x} ${list[i]!.p.y} ${mx} ${my}`;
       }
-      const last = list[SEGMENTS].p; d += ` L${last.x} ${last.y}`;
+      const last = list[SEGMENTS]!.p; d += ` L${last.x} ${last.y}`;
       pathRef.current?.setAttribute("d", d); glowRef.current?.setAttribute("d", d);
       if (pinRef.current) {
         const show = m === "dragging" || m === "connected";
@@ -93,8 +93,8 @@ function RedThread({ onClose }: { onClose: () => void }) {
     else { target.current = null; setMode("idle"); }
   };
   const vibrate = () => {
-    const list = pts.current as Array<{ p: Pt; o: Pt }> & { [i: number]: { p: Pt; o: Pt } };
-    for (let i = 1; i < SEGMENTS; i++) list[i].o.y -= Math.sin((i / SEGMENTS) * Math.PI) * 6 * (i % 2 ? 1 : -1);
+    const list = pts.current;
+    for (let i = 1; i < SEGMENTS; i++) list[i]!.o.y -= Math.sin((i / SEGMENTS) * Math.PI) * 6 * (i % 2 ? 1 : -1);
     setPulse(v => v + 1);
   };
   const moved = useRef(false);
