@@ -13,3 +13,6 @@
 - [x] Crear playa nocturna y dibujo libre en arena con limpieza.
 - [x] Añadir fuegos clásicos y formas Stray Kids, reflejos y sonido ambiental.
 - [x] Verificar ratón, teclado, pantalla táctil y ausencia de emojis.
+
+## Día 12
+- [x] Mapa de Colombia con hilo rojo Bogotá-Cali, carta y vibración.
