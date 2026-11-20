@@ -3931,5 +3931,4 @@
   --cafe-ink: oklch(0.3 0.05 40); --cafe-shadow: oklch(0.1 0.02 40 / 0.7); --cafe-vinyl: oklch(0.15 0.01 40);
   --cafe-coffee: oklch(0.35 0.07 50); --cafe-foam: oklch(0.88 0.05 75); --cafe-cup: oklch(0.93 0.02 90);
   --cafe-disc-1: oklch(0.55 0.15 25); --cafe-disc-2: oklch(0.5 0.1 230); --cafe-disc-3: oklch(0.6 0.12 140); --cafe-disc-4: oklch(0.55 0.14 320);
-  --cafe-skin: oklch(0.9 0.04 60); --cafe-hair: oklch(0.88 0.12 90); --cafe-blush: oklch(0.78 0.1 20);
 }
