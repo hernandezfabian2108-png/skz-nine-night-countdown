@@ -11,6 +11,7 @@
 @import "./components/days/shop.css";
 @import "./components/days/beach.css";
 @import "./components/days/hilo.css";
+@import "./components/days/cafe.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -3921,4 +3922,14 @@
   --hilo-red-deep: oklch(0.45 0.17 22);
   --hilo-gold: oklch(0.85 0.15 80);
   --hilo-shadow: oklch(0.3 0.05 40 / 0.5);
+}
+
+:root {
+  --cafe-wall: oklch(0.3 0.05 50); --cafe-wall-deep: oklch(0.18 0.03 45); --cafe-lamp: oklch(0.55 0.1 65);
+  --cafe-wood: oklch(0.42 0.08 50); --cafe-wood-deep: oklch(0.32 0.06 45); --cafe-wood-light: oklch(0.55 0.09 60);
+  --cafe-cream: oklch(0.95 0.03 85); --cafe-gold: oklch(0.82 0.13 80); --cafe-paper: oklch(0.95 0.03 85);
+  --cafe-ink: oklch(0.3 0.05 40); --cafe-shadow: oklch(0.1 0.02 40 / 0.7); --cafe-vinyl: oklch(0.15 0.01 40);
+  --cafe-coffee: oklch(0.35 0.07 50); --cafe-foam: oklch(0.88 0.05 75); --cafe-cup: oklch(0.93 0.02 90);
+  --cafe-disc-1: oklch(0.55 0.15 25); --cafe-disc-2: oklch(0.5 0.1 230); --cafe-disc-3: oklch(0.6 0.12 140); --cafe-disc-4: oklch(0.55 0.14 320);
+  --cafe-skin: oklch(0.9 0.04 60); --cafe-hair: oklch(0.88 0.12 90); --cafe-blush: oklch(0.78 0.1 20);
 }

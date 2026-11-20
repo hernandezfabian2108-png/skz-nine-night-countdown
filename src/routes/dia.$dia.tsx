@@ -12,9 +12,9 @@ export const Route = createFileRoute("/dia/$dia")({
     return day;
   },
   head: ({ loaderData }) => {
-    const title = loaderData?.day === 12 ? "El hilo rojo del destino · Día 12" : loaderData?.day === 11 ? "Bajo el mismo cielo · Día 11 · Stray Kids" : loaderData?.day === 10 ? "STAY MART · Día 10 · Stray Kids" : loaderData ? `Día ${loaderData.day} · Stray Kids` : "Calendario de Adviento";
+    const title = loaderData?.day === 13 ? "Café y vinilos · Día 13 · Stray Kids" : loaderData?.day === 12 ? "El hilo rojo del destino · Día 12" : loaderData?.day === 11 ? "Bajo el mismo cielo · Día 11 · Stray Kids" : loaderData?.day === 10 ? "STAY MART · Día 10 · Stray Kids" : loaderData ? `Día ${loaderData.day} · Stray Kids` : "Calendario de Adviento";
     const description = loaderData
-      ? loaderData.day === 12 ? "Une Bogotá y Cali con el hilo rojo del destino y abre una carta romántica." : loaderData.day === 11 ? "Dibuja en la arena y lanza fuegos artificiales de Stray Kids sobre una playa nocturna." : loaderData.day === 10 ? "Personaliza tu bolsa y explora una tienda coreana de snacks, álbumes y peluches de Stray Kids." : `La sorpresa detrás de la puerta ${loaderData.day} del calendario de Adviento.`
+      ? loaderData.day === 13 ? "Prepara un café colombiano con arte latte y pon vinilos de Stray Kids para descubrir una frase secreta." : loaderData.day === 12 ? "Une Bogotá y Cali con el hilo rojo del destino y abre una carta romántica." : loaderData.day === 11 ? "Dibuja en la arena y lanza fuegos artificiales de Stray Kids sobre una playa nocturna." : loaderData.day === 10 ? "Personaliza tu bolsa y explora una tienda coreana de snacks, álbumes y peluches de Stray Kids." : `La sorpresa detrás de la puerta ${loaderData.day} del calendario de Adviento.`
       : "Calendario de Adviento interactivo.";
     return {
       meta: [

@@ -16,3 +16,6 @@
 
 ## Día 12
 - [x] Mapa de Colombia con hilo rojo Bogotá-Cali, carta y vibración.
+
+## Día 13
+- [x] Cafetería con café, tocadiscos, 4 discos Spotify, frase secreta y cierre con Felix.
