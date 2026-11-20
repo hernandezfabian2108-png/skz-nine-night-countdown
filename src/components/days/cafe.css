@@ -35,10 +35,6 @@
 .cafe-frag { animation: cafe-frag .6s ease-out; display: inline; }
 @keyframes cafe-frag { from { opacity: 0; filter: blur(4px); } }
 .cafe-spotify { border-radius: 12px; overflow: hidden; filter: sepia(.25) saturate(.9); }
-.cafe-felix-wink { animation: cafe-wink 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes cafe-wink { 0%, 40%, 60%, 100% { transform: scaleY(1); } 48%, 52% { transform: scaleY(.1); } }
-.cafe-felix { animation: cafe-bob 2.6s ease-in-out infinite; }
-@keyframes cafe-bob { 50% { transform: translateY(-6px) rotate(-2deg); } }
 .cafe-sparkle { fill: var(--cafe-gold); animation: cafe-sparkle 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes cafe-sparkle { 0%, 100% { opacity: 0; transform: scale(.3); } 50% { opacity: 1; transform: scale(1); } }
 .cafe-pop { animation: cafe-pop .6s cubic-bezier(.3,1.4,.5,1); }

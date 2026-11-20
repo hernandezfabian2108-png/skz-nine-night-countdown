@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { DISCS, FULL_PHRASE, embedUrl, phraseComplete, revealedPhrase, clampSugar } from "@/components/days/day13-cafe";
+import { DISCS, FULL_PHRASE, embedUrl, phraseComplete, revealedPhrase, clampSugar, ARTS } from "@/components/days/day13-cafe";
 
 describe("Day 13 cafe", () => {
+  it("offers cream decorations without the wolf", () => {
+    expect(ARTS.map((a) => a.id)).toEqual(["logo", "lightstick", "corazon"]);
+    expect(ARTS.map((a) => a.label)).not.toContain("Lobito");
+  });
   it("has exactly 4 discs with the requested Spotify tracks", () => {
     expect(DISCS.map((d) => d.track)).toEqual(["5sSv2lotkWeHZ9YSTQrdbf", "5dUjBnP5zrWpWA5RGrr73g", "04A4WyCRyHQ8Nb3u3IsfzH", "1KuNhOubescxn3xD6WNI7Q"]);
     expect(embedUrl(DISCS[0]!.track)).toContain("open.spotify.com/embed/track/5sSv2lotkWeHZ9YSTQrdbf");
