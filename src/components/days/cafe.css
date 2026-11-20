@@ -1,0 +1,46 @@
+.cafe-scene { background: radial-gradient(ellipse at 50% 0%, var(--cafe-lamp) 0%, var(--cafe-wall) 55%, var(--cafe-wall-deep) 100%); color: var(--cafe-cream); font-family: Georgia, "Times New Roman", serif; }
+.cafe-bulb { width: 14px; height: 18px; border-radius: 50% 50% 45% 45%; background: var(--cafe-gold); box-shadow: 0 0 24px 8px color-mix(in oklab, var(--cafe-gold) 45%, transparent); animation: cafe-glow 3s ease-in-out infinite; }
+@keyframes cafe-glow { 50% { opacity: .75; } }
+.cafe-bar { background: repeating-linear-gradient(90deg, var(--cafe-wood) 0 46px, var(--cafe-wood-deep) 46px 48px); border-top: 6px solid var(--cafe-wood-light); }
+.cafe-panel { background: color-mix(in oklab, var(--cafe-wall-deep) 70%, transparent); border: 1px solid color-mix(in oklab, var(--cafe-cream) 18%, transparent); border-radius: 1.25rem; backdrop-filter: blur(6px); }
+.cafe-eyebrow { font-size: .7rem; letter-spacing: .25em; color: var(--cafe-gold); font-weight: 700; font-family: system-ui, sans-serif; }
+.cafe-hint { color: color-mix(in oklab, var(--cafe-cream) 70%, transparent); font-family: system-ui, sans-serif; }
+.cafe-btn { border-radius: 999px; padding: .5rem .9rem; font: 600 .82rem system-ui, sans-serif; background: color-mix(in oklab, var(--cafe-cream) 12%, transparent); color: var(--cafe-cream); border: 1px solid color-mix(in oklab, var(--cafe-cream) 25%, transparent); transition: transform .2s, background .2s; }
+.cafe-btn:hover:not(:disabled) { background: color-mix(in oklab, var(--cafe-cream) 22%, transparent); transform: translateY(-1px); }
+.cafe-btn:disabled { opacity: .4; }
+.cafe-btn[data-on="true"] { background: var(--cafe-gold); color: var(--cafe-wall-deep); }
+.cafe-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: color-mix(in oklab, var(--cafe-cream) 12%, transparent); color: var(--cafe-cream); }
+.cafe-steam path { fill: none; stroke: var(--cafe-cream); stroke-width: 3; stroke-linecap: round; opacity: 0; animation: cafe-steam 3s ease-in-out infinite; }
+.cafe-steam path:nth-child(2) { animation-delay: 1s; } .cafe-steam path:nth-child(3) { animation-delay: 2s; }
+@keyframes cafe-steam { 0% { opacity: 0; transform: translateY(8px); } 40% { opacity: .55; } 100% { opacity: 0; transform: translateY(-18px); } }
+.cafe-pour { animation: cafe-pour 1.1s ease-in; transform-origin: bottom; transform-box: fill-box; }
+@keyframes cafe-pour { from { transform: scaleY(0); } }
+.cafe-art { animation: cafe-art .9s ease-out; transform-box: fill-box; transform-origin: center; }
+@keyframes cafe-art { from { opacity: 0; transform: scale(.4) rotate(-20deg); } }
+.cafe-platter { animation: cafe-spin 2.4s linear infinite; transform-box: fill-box; transform-origin: center; animation-play-state: paused; }
+.cafe-platter[data-spin="true"] { animation-play-state: running; }
+@keyframes cafe-spin { to { transform: rotate(360deg); } }
+.cafe-disc-in { animation: cafe-disc-in .9s cubic-bezier(.3,1.3,.5,1); transform-box: fill-box; transform-origin: center; }
+@keyframes cafe-disc-in { from { transform: translate(-60px, -40px) scale(.6); opacity: 0; } }
+.cafe-arm { transition: transform 1.1s ease-in-out .5s; transform-origin: 170px 30px; }
+.cafe-arm[data-down="true"] { transform: rotate(26deg); }
+.cafe-sleeve { perspective: 800px; }
+.cafe-sleeve-inner { position: relative; transform-style: preserve-3d; transition: transform .7s ease; aspect-ratio: 1; }
+.cafe-sleeve-inner[data-flip="true"] { transform: rotateY(180deg); }
+.cafe-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: .6rem; overflow: hidden; box-shadow: 0 10px 20px -10px var(--cafe-shadow); }
+.cafe-back { transform: rotateY(180deg); background: var(--cafe-paper); color: var(--cafe-ink); display: grid; place-items: center; padding: .5rem; text-align: center; font: italic 600 clamp(.8rem, 1.6vw, 1rem) "Segoe Script", "Brush Script MT", cursive; }
+.cafe-vinyl-peek { position: absolute; top: 8%; right: -18%; width: 84%; aspect-ratio: 1; border-radius: 999px; background: radial-gradient(circle, var(--cafe-gold) 0 14%, var(--cafe-vinyl) 15% 100%); transition: transform .6s; z-index: -1; }
+.cafe-sleeve:hover .cafe-vinyl-peek, .cafe-sleeve[data-active="true"] .cafe-vinyl-peek { transform: translateX(22%); }
+.cafe-card { background: var(--cafe-paper); color: var(--cafe-ink); border-radius: 1rem; box-shadow: 0 16px 30px -14px var(--cafe-shadow); }
+.cafe-frag { animation: cafe-frag .6s ease-out; display: inline; }
+@keyframes cafe-frag { from { opacity: 0; filter: blur(4px); } }
+.cafe-spotify { border-radius: 12px; overflow: hidden; filter: sepia(.25) saturate(.9); }
+.cafe-felix-wink { animation: cafe-wink 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes cafe-wink { 0%, 40%, 60%, 100% { transform: scaleY(1); } 48%, 52% { transform: scaleY(.1); } }
+.cafe-felix { animation: cafe-bob 2.6s ease-in-out infinite; }
+@keyframes cafe-bob { 50% { transform: translateY(-6px) rotate(-2deg); } }
+.cafe-sparkle { fill: var(--cafe-gold); animation: cafe-sparkle 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes cafe-sparkle { 0%, 100% { opacity: 0; transform: scale(.3); } 50% { opacity: 1; transform: scale(1); } }
+.cafe-pop { animation: cafe-pop .6s cubic-bezier(.3,1.4,.5,1); }
+@keyframes cafe-pop { from { opacity: 0; transform: scale(.85); } }
+@media (prefers-reduced-motion: reduce) { .cafe-scene * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
