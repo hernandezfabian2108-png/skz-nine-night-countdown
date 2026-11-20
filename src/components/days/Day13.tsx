@@ -124,8 +124,8 @@ function Cafe({ onClose }: { onClose: () => void }) {
 
     {ending && <div className="fixed inset-0 z-[70] grid place-items-center bg-[color-mix(in_oklab,var(--cafe-wall-deep)_80%,transparent)] p-5" role="dialog" aria-label="Sorpresa final">
       <div className="cafe-card cafe-pop relative w-full max-w-sm p-6 text-center">
-        <Felix />
-        <p className="mt-3 text-lg italic">Mi amor, te dedico esto, ya lo sabes: arte al arte</p>
+        <SparkleBurst />
+        <p className="text-lg italic">Mi amor, te dedico esto, ya lo sabes: arte al arte</p>
         <div className="mt-4 flex flex-wrap justify-center gap-2">
           <Button variant="native" className="cafe-btn" style={{ color: "var(--cafe-ink)" }} onClick={() => setEnding(false)}>Seguir escuchando</Button>
           <Button variant="native" className="cafe-btn" style={{ color: "var(--cafe-ink)" }} onClick={() => { newCoffee(); setEnding(false); }}>Preparar otro café</Button>
