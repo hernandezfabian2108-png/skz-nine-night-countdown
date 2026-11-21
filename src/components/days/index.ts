@@ -12,6 +12,7 @@ import { Day10 } from "./Day10";
 import { Day11 } from "./Day11";
 import { Day12 } from "./Day12";
 import { Day13 } from "./Day13";
+import { Day14 } from "./Day14";
 
 /** What appears behind each door, by day number. Days without an entry show only their sticker. */
 export const DAY_CONTENT: Partial<Record<number, ComponentType>> = {
@@ -28,4 +29,5 @@ export const DAY_CONTENT: Partial<Record<number, ComponentType>> = {
   11: Day11,
   12: Day12,
   13: Day13,
+  14: Day14,
 };

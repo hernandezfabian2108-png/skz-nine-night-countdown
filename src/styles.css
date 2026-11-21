@@ -12,6 +12,7 @@
 @import "./components/days/beach.css";
 @import "./components/days/hilo.css";
 @import "./components/days/cafe.css";
+@import "./components/days/binder.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -75,6 +76,27 @@
 }
 
 :root {
+  --binder-base: oklch(0.94 0.025 78);
+  --binder-ink: oklch(0.3 0.028 175);
+  --binder-muted: oklch(0.47 0.035 175);
+  --binder-paper: oklch(0.985 0.009 86);
+  --binder-glass: oklch(0.985 0.009 86 / 0.9);
+  --binder-line: oklch(0.52 0.02 170 / 0.23);
+  --binder-cover: oklch(0.9 0.048 170 / 0.85);
+  --binder-pink: oklch(0.88 0.07 355);
+  --binder-blue: oklch(0.89 0.05 230);
+  --binder-lilac: oklch(0.88 0.05 300);
+  --binder-mint: oklch(0.86 0.065 165);
+  --binder-gold: oklch(0.76 0.11 80);
+  --binder-sticker: oklch(0.64 0.14 5);
+  --binder-focus: oklch(0.44 0.07 173);
+  --binder-metal: oklch(0.72 0.01 210);
+  --binder-pocket: oklch(0.94 0.03 200 / 0.25);
+  --binder-pocket-line: oklch(0.62 0.04 200 / 0.35);
+  --binder-shadow: 0 15px 40px oklch(0.28 0.03 65 / 0.25), 0 3px 6px oklch(0.28 0.03 65 / 0.18);
+  --binder-card-shadow: 0 3px 7px oklch(0.28 0.03 65 / 0.17);
+  --binder-ring-shadow: 0 2px 2px oklch(0.3 0 0 / 0.3), inset 0 2px 2px oklch(1 0 0 / 0.8);
+  --binder-sheen: linear-gradient(125deg, transparent 45%, oklch(1 0 0 / 0.24) 49%, transparent 54%);
   --beach-ink: oklch(0.2 0.045 230);
   --beach-glass: oklch(0.24 0.04 235 / 0.58);
   --beach-line: oklch(0.95 0.025 220 / 0.24);
