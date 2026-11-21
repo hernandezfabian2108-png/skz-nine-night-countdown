@@ -31,7 +31,8 @@ export function placeItem(items:Item[],item:Item):Item[]{
  if(item.kind==='card'){
   const pocket=POCKETS.find(p=>Math.hypot(p.x-pos.x,p.y-pos.y)<13);
   if(pocket)pos=pocket;
-  return [...items.filter(i=>!(i.kind==='card'&&i.x===pos.x&&i.y===pos.y)),{...item,...pos}];
+  const replaced=items.find(i=>i.kind==='card'&&i.x===pos.x&&i.y===pos.y);
+  return [...(replaced?removeItem(items,replaced.id):items),{...item,...pos}];
  }
  const parent=[...items].reverse().find(i=>i.kind==='card'&&Math.abs(i.x-pos.x)<10&&Math.abs(i.y-pos.y)<17);
  return [...items,{...item,...pos,...(parent?{parent:parent.id}:{})}];
