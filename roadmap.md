@@ -19,3 +19,8 @@
 
 ## Día 13
 - [x] Cafetería con café, tocadiscos, 4 discos Spotify, frase secreta y cierre con Felix.
+
+## Día 14
+- [ ] Crear escritorio, binder y photocards de las dos referencias.
+- [ ] Añadir cinco páginas, fundas, stickers y edición táctil y con teclado.
+- [ ] Verificar colección y conservación local en computadora y móvil.
