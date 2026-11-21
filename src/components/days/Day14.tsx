@@ -1,0 +1,55 @@
+import {useEffect,useRef,useState} from 'react';
+import {createPortal} from 'react-dom';
+import {useHydrated} from '@tanstack/react-router';
+import {ArrowLeft,BookOpen,Check,Plus,RotateCcw,Trash2,X} from 'lucide-react';
+import {Button} from '@/components/ui/button';
+import desk from '@/assets/day14/desk.png.asset.json';
+import {CARDS,PAGES,POCKETS,SLEEVES,STICKERS,bound,emptyPages,moveItem,placeItem,removeItem,validPages,type Item,type Pages,type Sleeve,type Sticker} from './day14-binder';
+
+export function Day14(){
+ const hydrated=useHydrated(),[open,setOpen]=useState(true);
+ return <><Button variant="native" className="candy-button grid h-28 w-28 place-items-center" aria-label="Abrir colección de photocards" onClick={()=>setOpen(true)}><BookOpen size={40}/></Button>{hydrated&&open&&createPortal(<Binder onClose={()=>setOpen(false)}/>,document.body)}</>;
+}
+function StickerArt({name}:{name:string}){
+ return <svg viewBox="0 0 60 60" aria-hidden className="binder-sticker-art">
+ {name==='estrella'&&<path d="m30 4 7 17 18 2-14 12 4 18-15-9-15 9 4-18L5 23l18-2z"/>}
+ {name==='corazon'&&<path d="M30 52C-5 32 0 4 20 9q7 1 10 8 3-7 10-8c20-5 25 23-10 43"/>}
+ {name==='lazo'&&<><path d="M28 26C0 1-2 41 28 34L17 53l13-7 13 7-11-19C62 41 60 1 32 26z"/><circle cx="30" cy="30" r="5"/></>}
+ {name==='cinta'&&<path d="m4 16 49-6-3 9 6 6-4 8 5 8-50 7 4-8-7-6 5-8z"/>}
+ {name==='nota'&&<><path d="M9 8h42v35L37 55H9z"/><path d="M18 22h24M18 30h20M18 38h13" fill="none" stroke="var(--binder-ink)" strokeWidth="2"/></>}
+ {name==='mariposa'&&<><path d="M28 29C-4-14-7 46 25 32-2 45 18 64 29 35M32 29C64-14 67 46 35 32 62 45 42 64 31 35"/><path d="M30 20v22m0-20-5-9m5 9 5-9" stroke="var(--binder-ink)" fill="none" strokeWidth="2"/></>}
+ {name==='skz'&&<><path d="M3 14h54v32H3z"/><text x="30" y="37" textAnchor="middle" fontSize="20" fill="var(--binder-paper)">SKZ</text></>}
+ </svg>;
+}
+function Binder({onClose}:{onClose:()=>void}){
+ const [pages,setPages]=useState<Pages>(emptyPages),[loaded,setLoaded]=useState(false),[page,setPage]=useState(0),[selected,setSelected]=useState<string|null>(null),[palette,setPalette]=useState<{kind:'card'|'sticker';asset:string}|null>(null),[sleeve,setSleeve]=useState<Sleeve>('transparente'),[confirm,setConfirm]=useState(false),[saved,setSaved]=useState(true);
+ const surface=useRef<HTMLDivElement>(null),close=useRef<HTMLButtonElement>(null),drag=useRef<{id:string;dx:number;dy:number;moved:boolean}|null>(null),paletteDrag=useRef<{kind:'card'|'sticker';asset:string;startX:number;startY:number}|null>(null),skipClick=useRef(false);
+ const items=pages[page]??[],active=items.find(i=>i.id===selected);
+ useEffect(()=>{try{const raw=localStorage.getItem('skz-day14-binder');if(raw){const data:unknown=JSON.parse(raw);if(validPages(data))setPages(data);}}catch{}setLoaded(true);close.current?.focus();const prev=document.body.style.overflow;document.body.style.overflow='hidden';return()=>{document.body.style.overflow=prev;};},[]);
+ useEffect(()=>{if(!loaded)return;try{localStorage.setItem('skz-day14-binder',JSON.stringify(pages));setSaved(true);}catch{setSaved(false);}},[pages,loaded]);
+ useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){if(confirm)setConfirm(false);else onClose();}};window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key);},[confirm,onClose]);
+ const update=(fn:(prev:Item[])=>Item[])=>setPages(prev=>prev.map((p,i)=>i===page?fn(p):p));
+ const add=(choice:{kind:'card'|'sticker';asset:string},x:number,y:number)=>{const id=crypto.randomUUID();update(p=>placeItem(p,{id,...choice,x,y,size:1,sleeve}));setSelected(id);};
+ const position=(x:number,y:number)=>{const rect=surface.current?.getBoundingClientRect();return rect?{x:(x-rect.left)/rect.width*100,y:(y-rect.top)/rect.height*100}:null;};
+ const paletteProps=(kind:'card'|'sticker',asset:string)=>({onPointerDown:(e:React.PointerEvent<HTMLButtonElement>)=>{paletteDrag.current={kind,asset,startX:e.clientX,startY:e.clientY};e.currentTarget.setPointerCapture(e.pointerId);},onPointerUp:(e:React.PointerEvent<HTMLButtonElement>)=>{const d=paletteDrag.current;paletteDrag.current=null;if(!d)return;const pos=position(e.clientX,e.clientY);if(pos&&pos.x>=0&&pos.x<=100&&pos.y>=0&&pos.y<=100){add({kind,asset},pos.x,pos.y);skipClick.current=true;}},onPointerCancel:()=>{paletteDrag.current=null;},onClick:()=>{if(skipClick.current){skipClick.current=false;return;}setPalette({kind,asset});setSelected(null);}});
+ const chooseSleeve=(s:Sleeve)=>{setSleeve(s);if(active?.kind==='card')update(p=>p.map(i=>i.id===active.id?{...i,sleeve:s}:i));};
+ return <section role="dialog" aria-modal="true" aria-label="Mi colección de photocards" className="binder-scene fixed inset-0 z-[60] overflow-y-auto">
+ <img src={desk.url} alt="" className="binder-desk"/>
+ <header className="binder-header relative flex items-center justify-between gap-3 px-5 py-4 sm:px-8"><div><p className="binder-eyebrow">DÍA 14 · STRAY KIDS</p><h2>Mi pequeño archivo STAY</h2></div><Button ref={close} variant="native" className="binder-icon" title="Volver a la puerta" aria-label="Volver a la puerta" onClick={onClose}><X size={20}/></Button></header>
+ <div className="binder-workspace relative"><div className="binder-main">
+ <nav className="binder-tabs" role="tablist" aria-label="Páginas de la colección">{PAGES.map((p,i)=><Button variant="native" role="tab" aria-selected={i===page} key={p} data-page={i} className="binder-tab" onClick={()=>{setPage(i);setSelected(null);setConfirm(false);}}>{p}</Button>)}</nav>
+ <div className="binder-book"><div key={page} ref={surface} className="binder-surface binder-flip" aria-label={`Página ${PAGES[page]}`} onClick={e=>{if(e.target!==e.currentTarget)return;const pos=position(e.clientX,e.clientY);if(pos&&palette)add(palette,pos.x,pos.y);else setSelected(null);}}>
+ <span className="binder-page-label">STAY / PHOTO ARCHIVE</span><span className="binder-page-number">{String(page+1).padStart(2,'0')}</span>
+ {POCKETS.map((p,i)=><Button variant="native" key={i} className="binder-pocket" aria-label={`Bolsillo ${i+1}`} style={{left:`${p.x}%`,top:`${p.y}%`}} onClick={()=>{if(palette)add(palette,p.x,p.y);else if(active?.kind==='card')update(items=>moveItem(items,active.id,p.x,p.y));}}><Plus/></Button>)}
+ <div className="binder-rings" aria-hidden>{[0,1,2,3].map(n=><i key={n}/>)}</div>
+ {items.map(item=>{const photo=CARDS.find(c=>c.id===item.asset);return <Button key={item.id} variant="native" className="binder-item" data-kind={item.kind} data-sleeve={item.kind==='card'?item.sleeve:undefined} aria-label={item.kind==='card'?photo?.name:`Sticker ${item.asset}`} aria-pressed={selected===item.id} style={{left:`${item.x}%`,top:`${item.y}%`,scale:item.kind==='sticker'?`${item.size}`:undefined}} onClick={()=>{setSelected(item.id);if(palette?.kind==='sticker')add(palette,item.x+4,item.y+5);}} onPointerDown={e=>{e.stopPropagation();const pos=position(e.clientX,e.clientY);if(!pos)return;setSelected(item.id);e.currentTarget.setPointerCapture(e.pointerId);drag.current={id:item.id,dx:pos.x-item.x,dy:pos.y-item.y,moved:false};}} onPointerMove={e=>{const d=drag.current;if(!d||d.id!==item.id)return;const pos=position(e.clientX,e.clientY);if(!pos)return;if(Math.hypot(pos.x-d.dx-item.x,pos.y-d.dy-item.y)>1)d.moved=true;update(p=>moveItem(p,item.id,pos.x-d.dx,pos.y-d.dy));}} onPointerUp={()=>{const d=drag.current;drag.current=null;if(d?.moved&&item.kind==='card'){const pocket=POCKETS.find(p=>Math.hypot(p.x-item.x,p.y-item.y)<10);if(pocket)update(p=>moveItem(p,item.id,pocket.x,pocket.y));}}} onPointerCancel={()=>{drag.current=null;}} onKeyDown={e=>{const steps:Record<string,[number,number]>={ArrowLeft:[-2,0],ArrowRight:[2,0],ArrowUp:[0,-2],ArrowDown:[0,2]};const step=steps[e.key];if(step){e.preventDefault();const pos=bound(item.x+step[0],item.y+step[1]);update(p=>moveItem(p,item.id,pos.x,pos.y));}if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();update(p=>removeItem(p,item.id));setSelected(null);}}}>{item.kind==='card'?<img src={photo?.src} alt="" draggable={false}/>:<StickerArt name={item.asset}/>}</Button>;})}
+ </div></div>
+ <div className="binder-tools"><span className="binder-eyebrow">{active?active.kind==='card'?'PHOTOCARD SELECCIONADA':'STICKER SELECCIONADO':palette?palette.kind==='card'?'PHOTOCARD EN MANO':'STICKER EN MANO':saved?'GUARDADO EN ESTE DISPOSITIVO':'SIN GUARDAR'} </span><div className="flex items-center gap-2">{active?.kind==='sticker'&&<label>Tamaño<input aria-label="Tamaño del sticker" type="range" min="0.5" max="2" step="0.1" value={active.size} onChange={e=>{const size=Number(e.target.value);update(p=>p.map(i=>i.id===active.id?{...i,size}:i));}}/></label>}{(active||palette)&&<Button variant="native" className="binder-icon" aria-label="Soltar selección" title="Soltar selección" onClick={()=>{setSelected(null);setPalette(null);}}><Check size={18}/></Button>}{active&&<Button variant="native" className="binder-icon" title="Retirar elemento" aria-label="Retirar elemento" onClick={()=>{update(p=>removeItem(p,active.id));setSelected(null);}}><Trash2 size={18}/></Button>}<Button variant="native" className="binder-icon" title="Limpiar página" aria-label="Limpiar página" onClick={()=>setConfirm(true)}><RotateCcw size={18}/></Button></div></div>
+ </div>
+ <aside className="binder-supply" aria-label="Materiales"><div><h3>Photocards <span className="binder-eyebrow">/ 11</span></h3><div className="binder-card-list">{CARDS.map(c=><Button variant="native" key={c.id} className="binder-photo-choice" aria-label={`Elegir ${c.name}`} title={c.name} aria-pressed={palette?.asset===c.id} {...paletteProps('card',c.id)}><img src={c.src} alt="" draggable={false}/></Button>)}</div></div>
+ <div><h3>Fundas</h3><div className="binder-options">{SLEEVES.map(s=><Button variant="native" key={s} className="binder-option" aria-label={`Funda ${s}`} title={`Funda ${s}`} aria-pressed={(active?.kind==='card'?active.sleeve:sleeve)===s} onClick={()=>chooseSleeve(s)}><span className="binder-sleeve-swatch" data-sleeve={s}/></Button>)}</div></div>
+ <div><h3>Stickers</h3><div className="binder-options">{STICKERS.map(s=><Button variant="native" key={s} className="binder-option binder-sticker-choice" aria-label={`Elegir sticker ${s}`} title={s} aria-pressed={palette?.asset===s} {...paletteProps('sticker',s)}><StickerArt name={s}/></Button>)}</div></div>
+ </aside></div>
+ {confirm&&<div role="alertdialog" aria-label="Limpiar esta página" className="fixed inset-0 z-10 flex items-center justify-center bg-background/70 p-5"><div className="bg-card text-card-foreground rounded-md p-6 max-w-sm shadow-lg"><h3 className="font-bold text-lg">¿Limpiar la página {PAGES[page]}?</h3><p className="mt-2 text-sm">Las demás páginas se conservarán.</p><div className="mt-5 flex gap-2"><Button variant="secondary" onClick={()=>setConfirm(false)}><ArrowLeft/>Cancelar</Button><Button onClick={()=>{update(()=>[]);setSelected(null);setConfirm(false);}}>Limpiar página</Button></div></div></div>}
+ </section>;
+}
